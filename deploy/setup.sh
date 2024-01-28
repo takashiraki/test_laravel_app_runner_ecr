@@ -2,7 +2,7 @@
 
 echo "start."
 
-composer intall
+composer install
 composer dump-autoload
 
 npm install
