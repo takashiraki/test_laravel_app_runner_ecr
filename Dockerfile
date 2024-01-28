@@ -19,21 +19,3 @@ COPY composer.lock composer.lock
 WORKDIR /var/www/html
 
 COPY . ./
-
-RUN composer install \
-    && composer dump-autoload \
-    && npm install \
-    && npm run build \
-    && chmod -R 777 storage \
-    && chmod -R 777 bootstrap \
-    && php -r "file_exists('.env') || copy('.env.example', '.env');" \
-    && php artisan key:generate \
-    && sed -i 's/DB_CONNECTION=/DB_CONNECTION=mysql/' .env \
-    && sed -i 's/DB_HOST=/DB_HOST=db/' .env \
-    && sed -i 's/DB_DATABASE=/DB_DATABASE=test_laravel/' .env \
-    && sed -i 's/DB_PASSWORD=/DB_PASSWORD=rootpw/' .env \
-    && php artisan optimize
-
-EXPOSE 80
-
-ENTRYPOINT ["./deploy/entrypoint.sh"]
