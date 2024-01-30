@@ -1722,7 +1722,7 @@
                 "async-aws/s3": "^1.5 || ^2.0",
                 "async-aws/simple-s3": "^1.1 || ^2.0",
                 "aws/aws-sdk-php": "^3.220.0",
-                "composer/semver": "^3.0.0",
+                "composer/semver": "^3.0",
                 "ext-fileinfo": "*",
                 "ext-ftp": "*",
                 "ext-zip": "*",
