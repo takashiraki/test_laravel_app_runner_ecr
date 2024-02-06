@@ -13,7 +13,7 @@ jobs:
     steps:
     - uses: actions/checkout@v3
     - name: Build the Docker image
-      run: docker build . --file Dockerfile --tag {{ secrets.DOCKER_REPOSITORY }}:latest
+      run: docker build . --file Dockerfile --tag ${{ secrets.DOCKER_REPOSITORY }}:latest
 
     - name: Login to Docker Hub
       run: docker login -u ${{ secrets.DOCKER_USER_NAME }} -p ${{ secrets.DOCKER_PASSWORD }}
