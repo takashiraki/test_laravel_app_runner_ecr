@@ -2,7 +2,7 @@ name: Deploy to Amazon ECR
 
 on:
   push:
-    branches: [ "master" ]
+    branches: [ "staging" ]
 
 env:
   AWS_REGION: MY_AWS_REGION                   # set this to your preferred AWS region, e.g. us-west-1
