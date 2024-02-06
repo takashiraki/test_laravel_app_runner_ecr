@@ -13,10 +13,10 @@ jobs:
     steps:
     - uses: actions/checkout@v3
     - name: Build the Docker image
-      run: docker build . --file Dockerfile --tag manemanedraw/test_laravel_app_runner:latest
+      run: docker build . --file Dockerfile --tag {{ secrets.DOCKER_REPOSITORY }}:latest
 
     - name: Login to Docker Hub
       run: docker login -u ${{ secrets.DOCKER_USER_NAME }} -p ${{ secrets.DOCKER_PASSWORD }}
 
     - name: Push Docker image for docker hub
-      run: docker push manemanedraw/test_laravel_app_runner:latest
+      run: docker push ${{ secrets.DOCKER_REPOSITORY }}:latest
