@@ -2,16 +2,11 @@
 
 echo "start."
 
-composer install
-composer dump-autoload
+if php artisan migrate; then
+    echo "Migration successful!!"
+    apache2-foreground
 
-npm install
-npm run build
-
-chmod -R 777 storage
-chmod -R 777 bootstrap
-
-php -r "file_exists('.env') || copy('.env.example', '.env');"
-php artisan key:generate
-
-php artisan migrate
+else
+    echo "Migration failed"
+    exit 1
+fi
