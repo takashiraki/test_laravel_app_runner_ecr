@@ -24,5 +24,8 @@ RUN composer install \
     && npm run build \
     && chmod -R 777 storage \
     && chmod -R 777 bootstrap \
+    && chmod -R 755 deploy \
     && php -r "file_exists('.env') || copy('.env.example', '.env');" \
     && php artisan key:generate
+
+ENTRYPOINT [ "./deploy/setup.sh" ]
