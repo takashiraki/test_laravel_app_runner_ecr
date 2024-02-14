@@ -2,7 +2,7 @@
 
 echo "start."
 
-if php artisan migrate; then
+if php artisan migrate --force; then
     echo "Migration successful!!"
     apache2-foreground
 
