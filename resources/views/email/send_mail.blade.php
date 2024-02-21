@@ -1,7 +1,7 @@
 <x-app-layout>
     <x-slot name="header">
         <h2 class="text-xl font-semibold leading-tight text-gray-800 dark:text-gray-200">
-            {{ __('Dashboard') }}
+            {{ __('Email test') }}
         </h2>
     </x-slot>
 
@@ -12,6 +12,7 @@
                     {{ __('Send mail test') }}
 
                     <form action="" method="post">
+                        @csrf
                         <div class="mt-4 space-y-12">
                             <div class="">
                                 <div class="sm:col-span-4">

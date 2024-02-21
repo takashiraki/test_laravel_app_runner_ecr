@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Email\SendEmailController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
@@ -25,6 +26,8 @@ Route::get('/dashboard', function () {
 Route::get('/test_email',function(){
     return view('email.send_mail');
 })->middleware(['auth','verified'])->name('email_test');
+
+Route::post('/test_email',[SendEmailController::class,'handle'])->middleware(['auth','verified']);
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
