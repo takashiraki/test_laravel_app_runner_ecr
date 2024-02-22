@@ -18,10 +18,10 @@ WORKDIR /var/www/html
 
 COPY . ./
 
-RUN useradd -ms /bin/bash developer \
-    && chown -R developer:developer /var/www/html
+# RUN useradd -ms /bin/bash developer \
+#     && chown -R developer:developer /var/www/html
 
-USER developer
+# USER developer
 
 RUN composer install \
     && composer dump-autoload \
