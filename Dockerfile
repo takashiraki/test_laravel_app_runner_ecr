@@ -30,6 +30,7 @@ RUN composer install \
     && chmod -R 777 storage \
     && chmod -R 777 bootstrap \
     && chmod -R 755 deploy \
+    && chmod +x deploy/setup.sh \
     && php -r "file_exists('.env') || copy('.env.example', '.env');" \
     && php artisan key:generate
 
