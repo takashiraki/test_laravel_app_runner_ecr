@@ -87,6 +87,12 @@
             </x-responsive-nav-link>
         </div>
 
+        <div class="space-y-1 pb-3 pt-2">
+            <x-responsive-nav-link :href="route('email_test')" :active="request()->routeIs('email_test')">
+                {{ __('Test email') }}
+            </x-responsive-nav-link>
+        </div>
+
         <!-- Responsive Settings Options -->
         <div class="border-t border-gray-200 pb-1 pt-4 dark:border-gray-600">
             <div class="px-4">
