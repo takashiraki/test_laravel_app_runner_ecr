@@ -18,6 +18,11 @@ WORKDIR /var/www/html
 
 COPY . ./
 
+# RUN useradd -ms /bin/bash developer \
+#     && chown -R developer:developer /var/www/html
+
+# USER developer
+
 RUN composer install \
     && composer dump-autoload \
     && npm install \
@@ -25,6 +30,7 @@ RUN composer install \
     && chmod -R 777 storage \
     && chmod -R 777 bootstrap \
     && chmod -R 755 deploy \
+    && chmod +x deploy/setup.sh \
     && php -r "file_exists('.env') || copy('.env.example', '.env');" \
     && php artisan key:generate
 
